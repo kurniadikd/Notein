@@ -9,3 +9,10 @@ rfd = "0.14"       # Untuk dialog "Open/Save File" bawaan OS
 
 [build-dependencies]
 slint-build = "1.5" # Dibutuhkan jika nanti ingin memisah file .slint
+
+[profile.release]
+opt-level = 3     # Prioritaskan kecepatan eksekusi dibanding ukuran file
+lto = true          # Link Time Optimization (mempercepat eksekusi)
+codegen-units = 1   # Memaksimalkan optimasi (build lebih lama, app lebih cepat)
+panic = "abort"     # Mengurangi ukuran binary (menghapus format error panjang)
+strip = true        # Menghapus simbol debug dari binary
